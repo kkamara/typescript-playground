@@ -3,9 +3,12 @@ type ObjType = {
         test: string;
     };
 };
-type bool = true|false;
-type func = () => {};
+type Bool = true|false;
+type Func = () => {};
 class Test {}
+type Arr = Array<string>;
+type Num = Number;
+type Str = string;
 
 const run = () => {
     let obj: ObjType = {};
@@ -15,10 +18,10 @@ const run = () => {
         console.log("response not there");
     }
 
-    const myBool: bool = undefined;
+    const myBool: Bool = undefined;
     console.log("myBool", myBool);
 
-    const myFunc: func = undefined;
+    const myFunc: Func = undefined;
     console.log("myFunc", myFunc);
 
     const myClass: Test = undefined;
@@ -26,6 +29,15 @@ const run = () => {
 
     const myNewClass: Test = new Test();
     console.log("myNewClass", myNewClass);
+
+    const myArray: Arr = undefined;
+    console.log("myArray", myArray);
+
+    const myNumber: Num = undefined;
+    console.log("myNumber", myNumber);
+
+    const myString: Str = undefined;
+    console.log("myString", myString);
 };
 
 run();
