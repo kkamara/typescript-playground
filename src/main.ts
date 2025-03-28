@@ -14,7 +14,7 @@ interface ErrorBody {
 
 const run = async () => {
     try {
-        await axios.get<HttpResponse<SuccessBody>>("http://localhost:3000/api/success")
+        await axios.get<HttpResponse<SuccessBody>>("http://localhost:3000/api/v1/success")
             .then(res => {
                 console.log(res.data.data.message);
             })
@@ -23,9 +23,9 @@ const run = async () => {
             });
     } catch (err) {
         if (axios.isAxiosError<ErrorBody>(err)) {
-            console.log(err.response.data.message);
+            console.log(err.response?.data.message);
         } else {
-            console.log(err.message);
+            console.log((err as Error).message);
         }
     }
 };
