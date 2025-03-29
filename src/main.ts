@@ -1,7 +1,7 @@
 import axios from "axios";
 
 interface HttpResponse<T> {
-    data: T;
+    data?: T;
 }
 
 interface SuccessBody {
@@ -16,7 +16,7 @@ const run = async () => {
     try {
         await axios.get<HttpResponse<SuccessBody>>("http://localhost:3000/api/v1/success")
             .then(res => {
-                console.log(res.data.data.message);
+                console.log(res.data.data?.message);
             })
             .catch(err => {
                 throw err;
