@@ -16,16 +16,16 @@ const run = async () => {
     try {
         await axios.get<HttpResponse<SuccessBody>>("http://localhost:3000/api/v1/success")
             .then(res => {
-                console.log(res.data.data?.message);
+                console.log("Result:", res.data.data?.message);
             })
             .catch(err => {
                 throw err;
             });
     } catch (err) {
         if (axios.isAxiosError<ErrorBody>(err)) {
-            console.log(err.response?.data.message);
+            console.log("Axios error:", err.response?.data.message);
         } else {
-            console.log((err as Error).message);
+            console.log("Error:", (err as Error).message);
         }
     }
 };
