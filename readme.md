@@ -13,7 +13,7 @@ npm i -g yarn
 ## Compile
 
 ```bash
-yarn compile
+yarn build
 ```
 
 ## Usage
