@@ -24,7 +24,14 @@ async function run() {
     })
     .catch((err: Error) => {
       if (axios.isAxiosError<ErrorBody>(err)) {
-        console.log("HTTP error:", err.response?.data.message);
+        if (
+          err.code &&
+          ["ERR_NETWORK", "ECONNREFUSED"].includes(err.code)
+        ) {
+          console.log("Server unavailable.");
+        } else {
+          console.log("HTTP error:", err.response?.data.message);
+        }
       } else {
         console.log("Error:", err.message);
       }
