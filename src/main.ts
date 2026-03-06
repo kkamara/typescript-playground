@@ -12,8 +12,13 @@ interface ErrorBody {
   message?: string;
 }
 
-const run = async () => {
-  await axios.get<HttpResponse<SuccessBody>>("http://localhost:3000/api/v1/success")
+async function run() {
+  await axios.get<HttpResponse<SuccessBody>>(
+    "http://localhost:8000/api/v1/success",
+    {
+      timeout: 5000, // 5 second timeout
+    }
+  )
     .then(res => {
       console.log("Result:", res.data.data?.message);
     })
