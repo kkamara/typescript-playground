@@ -4,7 +4,9 @@
     "target": "es2024",
     "module": "commonjs",
     "sourceMap": true,
-    "outDir": "dist"
+    "outDir": "./dist",
+    "rootDir": "./src"
   },
-  "include": ["./src/*.ts"]
+  "include": ["./src/*.ts"],
+  "exclude": ["node_modules"]
 }
