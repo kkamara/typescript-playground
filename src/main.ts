@@ -29,8 +29,10 @@ async function run() {
           ["ERR_NETWORK", "ECONNREFUSED"].includes(err.code)
         ) {
           console.log("Server unavailable.");
+        } else if (err.response?.data?.message) {
+          console.log("HTTP error:", err.response.data.message);
         } else {
-          console.log("HTTP error:", err.response?.data.message);
+          console.log("Error:", err.message);
         }
       } else {
         console.log("Error:", err.message);
